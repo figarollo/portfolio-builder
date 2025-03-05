@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Portfolio</title>
+</head>
+<body>
+    <h1>Your Personalized Investment Blueprint</h1>
+    <p><strong>Financial Goals:</strong> {{ ', '.join(user_data.goals) }}</p>
+    <p><strong>Sector Interests:</strong> {{ ', '.join(user_data.interests) }}</p>
+    <p><strong>Risk Tolerance:</strong> {{ user_data.risk|capitalize }}</p>
+    <p><strong>Primary Investment Goal:</strong> {{ user_data.invest_goal|capitalize }}</p>
+    <p><strong>Investment Timeline:</strong> {{ user_data.horizon }} years</p>
+    <p><strong>Starting Capital:</strong> ${{ "%.2f"|format(user_data.amount) }}</p>
+    <p><strong>Monthly Investment:</strong> ${{ "%.2f"|format(user_data.monthly) }}</p>
+
+    <h2>Portfolio Allocation</h2>
+    <table border="1">
+        <tr>
+            <th>ETF</th>
+            <th>Name</th>
+            <th>Amount</th>
+            <th>Percentage</th>
+        </tr>
+        {% for etf, value in portfolio.items() %}
+        <tr>
+            <td>{{ etf }}</td>
+            <td>{{ etf_database[etf]['name'] }}</td>
+            <td>${{ "%.2f"|format(value) }}</td>
+            <td>{{ "%.1f"|format((value / portfolio_total) * 100) }}%</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Portfolio Allocation Chart</h2>
+    <img src="{{ pie_chart }}" alt="Portfolio Pie Chart">
+</body>
+</html>

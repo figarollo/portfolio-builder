@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Investment Planner</title>
+</head>
+<body>
+    <h1>Welcome to Your Investment Planner</h1>
+    <form method="POST">
+        <label>How old are you?</label><br>
+        <input type="number" name="age" required><br><br>
+
+        <label>What are your financial goals? (e.g., 'I want to save for retirement and a house')</label><br>
+        <input type="text" name="goals" required><br><br>
+
+        <label>Over how many years do you plan to invest?</label><br>
+        <input type="number" name="horizon" required><br><br>
+
+        <label>Which sectors excite you? (e.g., 'I like tech and green energy')</label><br>
+        <input type="text" name="interests" required><br><br>
+
+        <label>What’s your stated risk tolerance?</label><br>
+        <select name="stated_risk" required>
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+        </select><br><br>
+
+        <label>How upset would you feel if your investments dropped 20% in a year? (0-10)</label><br>
+        <input type="number" name="q1" min="0" max="10" required><br><br>
+
+        <label>How much do you prioritize stability over high returns? (0-10)</label><br>
+        <input type="number" name="q2" min="0" max="10" required><br><br>
+
+        <label>What’s your primary investment goal?</label><br>
+        <select name="invest_goal" required>
+            <option value="growth">Growth</option>
+            <option value="income">Income</option>
+            <option value="preservation">Preservation</option>
+        </select><br><br>
+
+        <label>How much are you starting with? ($)</label><br>
+        <input type="number" name="amount" step="0.01" required><br><br>
+
+        <label>How much can you add monthly? ($)</label><br>
+        <input type="number" name="monthly" step="0.01" required><br><br>
+
+        <input type="submit" value="Generate Portfolio">
+    </form>
+</body>
+</html>
